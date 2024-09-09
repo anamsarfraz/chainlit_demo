@@ -29,7 +29,6 @@ model_kwargs = {
 async def on_message(message: cl.Message):
     # Maintain an array of messages in the user session
     message_history = cl.user_session.get("message_history", [])
-    message_history.append({"role": "user", "content": message.content})
 
     # Processing images exclusively
     images = [file for file in message.elements if "image" in file.mime] if message.elements else []
